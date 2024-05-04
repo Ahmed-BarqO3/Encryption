@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Encryption_Winform.Algorithms
 {
-    public abstract class Caesar
+    public static class Caesar
     {
 
         public static string Encryption(string P,int K)

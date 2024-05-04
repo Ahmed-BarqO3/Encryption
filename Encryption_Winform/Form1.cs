@@ -11,7 +11,6 @@ namespace Encryption_Winform
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Text = Caesar.Decryption("CJOGF".ToUpper(), 2);
         }
     }
 }
