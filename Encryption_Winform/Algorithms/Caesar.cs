@@ -11,46 +11,37 @@ namespace Encryption_Winform.Algorithms
 
         public static string Encryption(string P,int K)
         {
-           var sympole = new char[]  { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+           var sympoles = new List<char>  { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
                 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
             StringBuilder C = new StringBuilder();
 
-            for (int i = 0; i < P.Length; i++)
+            int index;
+            foreach (char c in P)
             {
-                for (int j = 0;j < 26;j++)
-                if (P[i] == sympole[j])
-                    if ( j + K > 25)
-                    {
-                        C.Append(sympole[Math.Abs(25 - (j + K) - 1)]);
-                    }
-                    else
-                        C.Append(sympole[j + K]);
-                
+                index = sympoles.IndexOf(c);
+                C.Append(sympoles[(index + K) % 26]);
             }
             return C.ToString();
         }
 
         public static string Decryption(string C, int K)
         {
-            var sympole = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+            var sympoles = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
                 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
             StringBuilder P = new StringBuilder();
 
-            for (int i = 0; i < C.Length; i++)
+            int index;
+            foreach (char c in C)
             {
-                for (int j = 0; j < 26; j++)
-                    if (C[i] == sympole[j])
-                    {
-                        if (j - K < 0)
-                        {
-                            P.Append(sympole[(j - K) + 26]);
-                        }
-                        else
-                            P.Append(sympole[j - K]);
-                    }
+                index = sympoles.IndexOf(c);
+                if((index - K) % 26 < 0)
+                    P.Append(sympoles[(index - K) % 26] + 26);
+                else
+                    P.Append(sympoles[(index - K) % 26]);
             }
+            
             return P.ToString();
         }
 
