@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encryption_Winform", "Encryption_Winform.csproj", "{8416DD1F-17D0-4B89-BE16-ECD8C4EB518E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encryption_Winform", "Encryption_Winform.csproj", "{8416DD1F-17D0-4B89-BE16-ECD8C4EB518E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encryption.Test", "..\Encryption.Test\Encryption.Test.csproj", "{9652810F-8FE5-40A1-989E-FAD063B95D7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8416DD1F-17D0-4B89-BE16-ECD8C4EB518E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8416DD1F-17D0-4B89-BE16-ECD8C4EB518E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8416DD1F-17D0-4B89-BE16-ECD8C4EB518E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9652810F-8FE5-40A1-989E-FAD063B95D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9652810F-8FE5-40A1-989E-FAD063B95D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9652810F-8FE5-40A1-989E-FAD063B95D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9652810F-8FE5-40A1-989E-FAD063B95D7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

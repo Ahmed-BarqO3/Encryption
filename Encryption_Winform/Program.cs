@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace Encryption_Winform
 {
     internal static class Program
