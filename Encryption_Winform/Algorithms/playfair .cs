@@ -154,5 +154,4 @@ namespace Encryption_Winform.Algorithms
             return plaintext.ToString().ToUpper();
         }
     }
-
 }
