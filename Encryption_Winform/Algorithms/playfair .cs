@@ -101,7 +101,6 @@ namespace Encryption_Winform.Algorithms
 
        public static string Decryption(string ciphertext, string key)
         {
-            // Create the 5x5 matrix based on the key
             var matrix = GenerateKeyMatrix(key);
 
             key = key.ToUpper();
@@ -117,7 +116,6 @@ namespace Encryption_Winform.Algorithms
 
 
 
-            // Decrypt the ciphertext
             StringBuilder plaintext = new StringBuilder();
             for (int i = 0; i < ciphertext.Length; i += 2)
             {
@@ -130,7 +128,6 @@ namespace Encryption_Winform.Algorithms
                 GetPosition(ref ch2, out row2, out col2, matrix);
                
 
-                // Apply the decryption rules
                 if (row1 == row2)
                 {
                     // Same row
@@ -145,7 +142,6 @@ namespace Encryption_Winform.Algorithms
                 }
                 else
                 {
-                    // Form a rectangle
                     plaintext.Append(matrix[row1, col2]);
                     plaintext.Append(matrix[row2, col1]);
                 }

@@ -8,7 +8,6 @@ namespace Encryption_Winform.Algorithms
 {
     public static class Caesar
     {
-
         public static string Encryption(string P,int K)
         {
            var sympoles = new List<char>  { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',

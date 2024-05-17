@@ -27,7 +27,7 @@ namespace Encryption_Winform
 
             SetProcessDpiAwareness((int)DpiAwareness.PerMonitorAware);
 
-            Application.Run(new Form1());
+            Application.Run(new Main());
         }
     }
 }

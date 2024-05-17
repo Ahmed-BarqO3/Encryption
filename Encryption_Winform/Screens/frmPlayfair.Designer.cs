@@ -1,14 +1,14 @@
-﻿namespace Encryption_Winform
+﻿namespace Encryption_Winform.Screens
 {
-    partial class Form1
+    partial class frmPlayfair
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,36 +23,37 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            ctrlBase1 = new ctrlBase();
             SuspendLayout();
             // 
-            // textBox1
+            // ctrlBase1
             // 
-            textBox1.Location = new Point(303, 146);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(207, 27);
-            textBox1.TabIndex = 0;
+            ctrlBase1.BackColor = Color.FromArgb(32, 32, 32);
+            ctrlBase1.Dock = DockStyle.Fill;
+            ctrlBase1.Location = new Point(0, 0);
+            ctrlBase1.Name = "ctrlBase1";
+            ctrlBase1.Size = new Size(800, 450);
+            ctrlBase1.TabIndex = 0;
+            ctrlBase1.Load += ctrlBase1_Load;
             // 
-            // Form1
+            // frmPlayfair
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Controls.Add(ctrlBase1);
+            Name = "frmPlayfair";
+            Text = "frmPlayfair";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
+        private ctrlBase ctrlBase1;
     }
 }
