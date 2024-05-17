@@ -14,14 +14,17 @@ namespace Encryption_Winform.Screens
     public partial class ctrlBase : UserControl
     {
 
-        public delegate string RequstAlgorithm(string text,string key);
-        event RequstAlgorithm _OnAlgorithmPerform;
+        public delegate string RequstAlgorithmHandler(string text,string key);
+        event RequstAlgorithmHandler _OnAlgorithmPerform;
 
-        RequstAlgorithm algorithm;
+        RequstAlgorithmHandler _encrypt;
+        RequstAlgorithmHandler _decrypt;
+
+        RequstAlgorithmHandler algorithm;
         public ctrlBase()
         {
             InitializeComponent();
-            _OnAlgorithmPerform += CtrlBase__OnAlgorithmPerform;
+            _OnAlgorithmPerform += ReturnResult_OnAlgorithmPerform;
         }
 
    
@@ -32,6 +35,8 @@ namespace Encryption_Winform.Screens
                 rdDecryption.Checked = true;
                 return;
             }
+
+            algorithm = _encrypt;
 
             lblSource.Text = "Plain Text:";
             lblResult.Text = "Cipher Text:";
@@ -49,6 +54,7 @@ namespace Encryption_Winform.Screens
                 return;
             }
 
+            algorithm = _decrypt;
             lblSource.Text = "Cipher Text:";
             lblResult.Text = "Plain Text:";
             btnTask.Text = "Decryption";
@@ -60,9 +66,7 @@ namespace Encryption_Winform.Screens
         void ValidatingtextBox(Guna2TextBox box)
         {
             if (String.IsNullOrWhiteSpace(box.Text))
-            {
                 errorProvider1.SetError(box, "This Field is Recuierd");
-            }
             else
                 errorProvider1.SetError(box, "");
         }
@@ -93,18 +97,18 @@ namespace Encryption_Winform.Screens
             txtResult.Clear();
             txtSource.Clear();
         }
-        public void SentAlogrithms(RequstAlgorithm encrypt, RequstAlgorithm decrypt)
+        public void SentAlogrithms(RequstAlgorithmHandler encrypt, RequstAlgorithmHandler decrypt)
         {
-            if (rdEncryption.Checked)
-                algorithm = encrypt;
-            else if (rdDecryption.Checked)
-                algorithm = decrypt;
+                _encrypt = encrypt;
+                _decrypt = decrypt;
+
+            algorithm = _encrypt;
         }
         private void btnTask_Click(object sender, EventArgs e)
         {
             if(_OnAlgorithmPerform is not null)
              txtResult.Text = _OnAlgorithmPerform.Invoke(txtSource.Text,txtKey.Text);
         }
-        private string CtrlBase__OnAlgorithmPerform(string text, string key) => txtResult.Text = algorithm(text, key);
+        private string ReturnResult_OnAlgorithmPerform(string text, string key) => txtResult.Text = algorithm(text, key);
     }
 }
