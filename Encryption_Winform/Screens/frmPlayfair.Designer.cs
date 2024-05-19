@@ -48,7 +48,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(ctrlBase1);
             Name = "frmPlayfair";
-            Text = "frmPlayfair";
+            Text = "Playfair";
             ResumeLayout(false);
         }
 

@@ -17,7 +17,32 @@ namespace Encryption_Winform.Screens
         {
             InitializeComponent();
         }
+        
+  
+        private void txtUpperCase_Validating(object sender, CancelEventArgs e) =>
+           ValidatingtextBox((Guna2TextBox)sender);
+        void ValidatingtextBox(Guna2TextBox box)
+        {
+            if (String.IsNullOrWhiteSpace(box.Text))
+                errorProvider1.SetError(box, "This Field is Recuierd");
+            else
+                errorProvider1.SetError(box, "");
+        }
+        void HandelKeyPress(Guna2TextBox sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsUpper(e.KeyChar) && !((char)Keys.Back == e.KeyChar))
+                errorProvider1.SetError(sender, "Only uppercase letters are accepted");
+            else
+                errorProvider1.SetError(sender, "");
 
+            if (e.KeyChar == (char)Keys.Enter)
+                btnTask.PerformClick();
+        }
+        private void txtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HandelKeyPress((Guna2TextBox)sender, e);
+            e.Handled = !Char.IsUpper(e.KeyChar) && !((char)Keys.Back == e.KeyChar);
+        }
 
         private void rdEncryption_CheckedChanged(object sender, EventArgs e)
         {
@@ -33,7 +58,6 @@ namespace Encryption_Winform.Screens
 
         private void rdDecryption_CheckedChanged(object sender, EventArgs e)
         {
-   
             algorithm = _decrypt;
             lblSource.Text = "Cipher Text:";
             lblResult.Text = "Plain Text:";
@@ -41,33 +65,6 @@ namespace Encryption_Winform.Screens
 
             txtSource.Clear();
             txtResult.Clear();
-        }
-
-        void ValidatingtextBox(Guna2TextBox box)
-        {
-            if (String.IsNullOrWhiteSpace(box.Text))
-                errorProvider1.SetError(box, "This Field is Recuierd");
-            else
-                errorProvider1.SetError(box, "");
-        }
-
-        void HandelKeyPress(Guna2TextBox sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsUpper(e.KeyChar) && !((char)Keys.Back == e.KeyChar))
-                errorProvider1.SetError(sender, "Only uppercase letters are accepted");
-            else
-                errorProvider1.SetError(sender, "");
-        }
-
-        private void txtUpperCase_Validating(object sender, CancelEventArgs e)
-        {
-            ValidatingtextBox((Guna2TextBox)sender);
-        }
-
-        private void txtBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            HandelKeyPress((Guna2TextBox)sender, e);
-            e.Handled = !Char.IsUpper(e.KeyChar) && !((char)Keys.Back == e.KeyChar);
         }
         //----------------------------------------------------------------------------------------
 

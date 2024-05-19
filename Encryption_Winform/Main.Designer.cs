@@ -48,6 +48,7 @@
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlFill = new Guna.UI2.WinForms.Guna2Panel();
+            lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlNav.SuspendLayout();
             pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
@@ -168,12 +169,24 @@
             pnlFill.Size = new Size(931, 530);
             pnlFill.TabIndex = 1;
             // 
+            // lblTitle
+            // 
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.Font = new Font("Arial", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(127, 91, 110);
+            lblTitle.Location = new Point(599, 30);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(3, 2);
+            lblTitle.TabIndex = 15;
+            lblTitle.Text = null;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
             ClientSize = new Size(1262, 673);
+            Controls.Add(lblTitle);
             Controls.Add(pnlFill);
             Controls.Add(pnlNav);
             ForeColor = SystemColors.ControlLight;
@@ -186,6 +199,7 @@
             pnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -198,5 +212,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlFill;
         private Guna.UI2.WinForms.Guna2Button btnCaesar;
         private Guna.UI2.WinForms.Guna2Button btnPlayfair;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
     }
 }
