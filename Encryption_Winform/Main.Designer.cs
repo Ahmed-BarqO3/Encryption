@@ -181,7 +181,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
             WindowState = FormWindowState.Maximized;
-            Load += Form1_Load;
             pnlNav.ResumeLayout(false);
             pnlTitle.ResumeLayout(false);
             pnlTitle.PerformLayout();

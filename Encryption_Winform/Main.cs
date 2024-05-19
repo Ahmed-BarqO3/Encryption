@@ -8,21 +8,28 @@ namespace Encryption_Winform
         public Main()
         {
             InitializeComponent();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
+        }
+        void LoadForm(Form frm)
         {
-        }
+            if(pnlFill.Controls.Count > 0)
+                pnlFill.Controls.Clear();
 
+            frm.TopLevel = false;
+            frm.Dock = DockStyle.Fill;
+
+            pnlFill.Controls.Add(frm);
+            frm.Show();
+        } 
+        
         private void btnCaesar_Click(object sender, EventArgs e)
         {
-
+            LoadForm(new frmCaesar());
         }
 
         private void btnPlayfair_Click(object sender, EventArgs e)
         {
-            frmPlayfair frm = new frmPlayfair();
-            frm.Show();
+            LoadForm(new frmPlayfair());   
         }
     }
 }

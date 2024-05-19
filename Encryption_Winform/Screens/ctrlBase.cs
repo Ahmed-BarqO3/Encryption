@@ -1,13 +1,5 @@
 ﻿using Guna.UI2.WinForms;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Encryption_Winform.Screens
 {
@@ -24,18 +16,11 @@ namespace Encryption_Winform.Screens
         public ctrlBase()
         {
             InitializeComponent();
-            _OnAlgorithmPerform += ReturnResult_OnAlgorithmPerform;
         }
 
-   
+
         private void rdEncryption_CheckedChanged(object sender, EventArgs e)
         {
-            if (!rdEncryption.Checked)
-            {
-                rdDecryption.Checked = true;
-                return;
-            }
-
             algorithm = _encrypt;
 
             lblSource.Text = "Plain Text:";
@@ -48,12 +33,7 @@ namespace Encryption_Winform.Screens
 
         private void rdDecryption_CheckedChanged(object sender, EventArgs e)
         {
-            if (!rdDecryption.Checked)
-            {
-                rdEncryption.Checked = true;
-                return;
-            }
-
+   
             algorithm = _decrypt;
             lblSource.Text = "Cipher Text:";
             lblResult.Text = "Plain Text:";
@@ -99,10 +79,12 @@ namespace Encryption_Winform.Screens
         }
         public void SentAlogrithms(RequstAlgorithmHandler encrypt, RequstAlgorithmHandler decrypt)
         {
-                _encrypt = encrypt;
-                _decrypt = decrypt;
+            _encrypt = encrypt;
+            _decrypt = decrypt;
 
             algorithm = _encrypt;
+
+            _OnAlgorithmPerform = ReturnResult_OnAlgorithmPerform;
         }
         private void btnTask_Click(object sender, EventArgs e)
         {
