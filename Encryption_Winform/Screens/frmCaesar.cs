@@ -4,13 +4,9 @@ namespace Encryption_Winform.Screens
 {
     public partial class frmCaesar : Base
     {
-        delegate string RequstAlgorithmHandler(string text, int key);
-        RequstAlgorithmHandler _algorithm;
-
         public frmCaesar()
         {
             InitializeComponent();
-            _algorithm = Caesar.Encryption;
         }
 
         private void rdEncryption_CheckedChanged(object sender, EventArgs e)
@@ -18,8 +14,6 @@ namespace Encryption_Winform.Screens
             lblSource.Text = "Plain Text:";
             lblResult.Text = "Cipher Text:";
             btnTask.Text = "Encryption";
-
-            _algorithm = Caesar.Encryption;
 
             txtSource.Clear();
             txtResult.Clear();
@@ -29,8 +23,6 @@ namespace Encryption_Winform.Screens
             lblSource.Text = "Cipher Text:";
             lblResult.Text = "Plain Text:";
             btnTask.Text = "Decryption";
-
-            _algorithm = Caesar.Decryption;
 
             txtSource.Clear();
             txtResult.Clear();
@@ -44,7 +36,7 @@ namespace Encryption_Winform.Screens
         }
         private void txtKey_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !((char)Keys.Back == e.KeyChar))
+            if (!Char.IsUpper(e.KeyChar) && !((char)Keys.Back == e.KeyChar))
                 errorProvider1.SetError(txtKey, "Only digits are accepted");
             else
                 errorProvider1.SetError(txtKey, "");
@@ -70,7 +62,9 @@ namespace Encryption_Winform.Screens
         }
 
         //-----------------------------------------------------------------------------------------
-        private void btnTask_Click(object sender, EventArgs e) =>
-          txtResult.Text = _algorithm(txtSource.Text, int.Parse(txtKey.Text));
+        private void btnTask_Click(object sender, EventArgs e)
+        {
+            txtResult.Text = Caesar.Encryption(txtSource.Text, int.Parse(txtKey.Text));
+        }
     }
 }
