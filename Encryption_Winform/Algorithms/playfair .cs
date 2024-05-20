@@ -55,17 +55,19 @@ public static class Playfair
 
         plaintext = plaintext.ToUpper().Replace("J", "I");
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < plaintext.Length; i += 2)
         {
-            if (plaintext[i] == plaintext[i + 1])
+            if (i != plaintext.Length - 1)
             {
-                sb.Append(plaintext[i] + "Z");
-                if(i != plaintext.Length - 1)
-                sb.Append(plaintext[i+1] + "Z");
-
+                if (plaintext[i] == plaintext[i + 1])
+                {
+                    sb.Append(plaintext[i] + "Z");
+                    sb.Append(plaintext[i+1] + "Z");
+                }
+                else
+                    sb.Append(plaintext[i].ToString() + plaintext[i + 1]);
             }
-            else
-                sb.Append(plaintext[i].ToString() + plaintext[i + 1]);
         }
 
         StringBuilder ciphertext = new StringBuilder();
