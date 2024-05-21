@@ -23,5 +23,6 @@ public partial class Main : Form
         LoadForm(new frmCaesar());
     private void btnPlayfair_Click(object sender, EventArgs e) =>
         LoadForm(new frmPlayfair());
-
+    private void btnVigenere_Click(object sender, EventArgs e) =>
+        LoadForm(new frmVigenere());
 }
