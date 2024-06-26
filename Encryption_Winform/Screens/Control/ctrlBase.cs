@@ -1,13 +1,13 @@
-﻿using Guna.UI2.WinForms;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using Guna.UI2.WinForms;
 
-namespace Encryption_Winform.Screens
+namespace Encryption_Winform.Screens.Control
 {
     public partial class ctrlBase : UserControl
     {
 
         public delegate string RequstAlgorithmHandler(string text,string key);
-        event RequstAlgorithmHandler _OnAlgorithmPerform;
+        event RequstAlgorithmHandler OnAlgorithmPerform;
 
         RequstAlgorithmHandler _encrypt;
         RequstAlgorithmHandler _decrypt;
@@ -81,12 +81,12 @@ namespace Encryption_Winform.Screens
 
             algorithm = _encrypt;
 
-            _OnAlgorithmPerform = ReturnResult_OnAlgorithmPerform;
+            OnAlgorithmPerform = ReturnResult_OnAlgorithmPerform;
         }
         private void btnTask_Click(object sender, EventArgs e)
         {
-            if(_OnAlgorithmPerform is not null)
-             txtResult.Text = _OnAlgorithmPerform.Invoke(txtSource.Text,txtKey.Text);
+            if(OnAlgorithmPerform is not null)
+             txtResult.Text = OnAlgorithmPerform.Invoke(txtSource.Text,txtKey.Text);
         }
         private string ReturnResult_OnAlgorithmPerform(string text, string key) => txtResult.Text = algorithm(text, key);
     }

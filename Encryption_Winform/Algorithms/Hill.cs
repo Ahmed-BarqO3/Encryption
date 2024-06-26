@@ -1,63 +1,117 @@
-﻿namespace Encryption_Winform.Algorithms;
+﻿using Encryption_Winform.Common;
 
-using MathNet.Numerics.LinearAlgebra;
-using MatrixDotNet;
+namespace Encryption_Winform.Algorithms;
+
+using System.Text;
 using static Math;
+
 public static class Hill
 {
-    static int[,] GenrateKeyMatrics(string key)
+    public static string Encrypt(string plaintext, string key)
     {
-        var l = Utility.GetAllLettersAsDictionary();
 
-        int n = 2;
-        int[,] keyMatrics = new int[n, n];
+        // Calculate the dimension of the key matrix
+        int matrixSize = (int)Math.Sqrt(key.Length);
 
-        if (key.Length > 4)
+        if (matrixSize * matrixSize != key.Length)
         {
-            n = (int)Floor(Sqrt(key.Length));
-            keyMatrics = new int[n, n];
-
-            for (int i = 0; i < n; i++)
-            {
-                int j = 0;
-                foreach (char c in key)
-                    keyMatrics[i, j++] = c;
-            }
-        }
-        else
-        {
-            int index = 0;
-            for (int i = 0; i < n; i++)
-                for (int j = 0; j < n; j++)
-                    keyMatrics[i, j] = l[key[index++]];
+            throw new ArgumentException("Key length must be a perfect square.");
         }
 
-        return keyMatrics;  
-    }
-
-    public static string Encryption(string text,string key)
-    {
-        var letters = Utility.GetAllLettersAsDictionary();
-        var keyMatrics = GenrateKeyMatrics(key);
-
-
-        int paddingLength = (key.Length - text.Length % key.Length) % key.Length;
-        text.PadRight(text.Length + paddingLength, 'X');
-
-        var size = text.Length / keyMatrics.Length;
-        int[,] palintext = new int[size, keyMatrics.Length];
-
-        for (int i = 0; i < size; i++)
+        // Convert key into a matrix
+        int[,] keyMatrix = new int[matrixSize, matrixSize];
+        for (int i = 0; i < matrixSize; i++)
         {
-            byte index = 0;
-            for (int j = 0; j < keyMatrics.Length; j++)
+            for (int j = 0; j < matrixSize; j++)
             {
-                palintext[i, j] = letters[text[index++]];
+                keyMatrix[i, j] = key[i * matrixSize + j] - 'A';
             }
         }
 
-        return "";
+        // Pad plaintext if its length is not a multiple of the matrix size
+        while (plaintext.Length % matrixSize != 0)
+        {
+            plaintext += "X";
+        }
+
+        // Encrypt plaintext in blocks of the matrix size
+        string ciphertext = "";
+        for (int i = 0; i < plaintext.Length; i += matrixSize)
+        {
+            int[] block = new int[matrixSize];
+            for (int j = 0; j < matrixSize; j++)
+            {
+                block[j] = plaintext[i + j] - 'A';
+            }
+
+            int[] encryptedBlock = new int[matrixSize];
+            for (int j = 0; j < matrixSize; j++)
+            {
+                encryptedBlock[j] = 0;
+                for (int k = 0; k < matrixSize; k++)
+                {
+                    encryptedBlock[j] += keyMatrix[j, k] * block[k];
+                }
+
+                encryptedBlock[j] %= 26;
+            }
+
+            for (int j = 0; j < matrixSize; j++)
+            {
+                ciphertext += (char)(encryptedBlock[j] + 'A');
+            }
+        }
+
+        return ciphertext;
     }
 
-    public static string Dencryption(string text, string key) => "Not implemented";
+    public static string Dencryption(string ciphertext, string key)
+    {
+        int matrixSize = (int)Math.Sqrt(key.Length);
+
+
+        // Convert key into a matrix
+        int[,] keyMatrix = new int[matrixSize, matrixSize];
+        for (int i = 0; i < matrixSize; i++)
+        {
+            for (int j = 0; j < matrixSize; j++)
+            {
+                keyMatrix[i, j] = key[i * matrixSize + j] - 'A';
+            }
+        }
+
+        // Find the inverse of the key matrix
+        int[,] inverseKeyMatrix = Utility.InverseMatrix(keyMatrix, 26);
+
+        // Decrypt ciphertext in blocks of the matrix size
+        string plaintext = "";
+        for (int i = 0; i < ciphertext.Length; i += matrixSize)
+        {
+            int[] block = new int[matrixSize];
+            for (int j = 0; j < matrixSize; j++)
+            {
+                block[j] = ciphertext[i + j] - 'A';
+            }
+
+            int[] decryptedBlock = new int[matrixSize];
+            for (int j = 0; j < matrixSize; j++)
+            {
+                decryptedBlock[j] = 0;
+                for (int k = 0; k < matrixSize; k++)
+                {
+                    decryptedBlock[j] += inverseKeyMatrix[j, k] * block[k];
+                }
+
+                decryptedBlock[j] = (decryptedBlock[j] % 26 + 26) % 26; // Ensure positive modulo
+            }
+
+            for (int j = 0; j < matrixSize; j++)
+            {
+                plaintext += (char)(decryptedBlock[j] + 'A');
+            }
+        }
+
+        return plaintext;
+    }
 }
+

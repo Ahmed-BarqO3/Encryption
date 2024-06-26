@@ -1,4 +1,4 @@
-﻿namespace Encryption_Winform.Screens
+﻿namespace Encryption_Winform.Screens.Control
 {
     partial class ctrlBase
     {

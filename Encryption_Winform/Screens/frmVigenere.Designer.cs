@@ -1,4 +1,6 @@
-﻿namespace Encryption_Winform.Screens
+﻿using Encryption_Winform.Screens.Control;
+
+namespace Encryption_Winform.Screens
 {
     partial class frmVigenere
     {

@@ -1,10 +1,12 @@
-﻿namespace Encryption_Winform.Algorithms;
+﻿using Encryption_Winform.Common;
+
+namespace Encryption_Winform.Algorithms;
 using System.Text;
 public static class Caesar
 {
     public static string Encryption(string P, int K)
     {
-        var sympoles = Utility.GetAllUpperLetters();
+        var sympoles = Utility.GetAllUpperLettersAsList();
 
         StringBuilder C = new StringBuilder();
 
@@ -19,7 +21,7 @@ public static class Caesar
 
     public static string Decryption(string C, int K)
     {
-        var sympoles = Utility.GetAllUpperLetters();
+        var sympoles = Utility.GetAllUpperLettersAsList();
 
         StringBuilder P = new StringBuilder();
 

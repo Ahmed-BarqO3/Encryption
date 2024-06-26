@@ -2,7 +2,7 @@
 
 namespace Encryption_Winform.Screens
 {
-    partial class frmPlayfair
+    partial class frmHill
     {
         /// <summary>
         /// Required designer variable.
@@ -43,14 +43,14 @@ namespace Encryption_Winform.Screens
             ctrlBase1.TabIndex = 0;
             ctrlBase1.Load += ctrlBase1_Load;
             // 
-            // frmPlayfair
+            // frmHill
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(ctrlBase1);
-            Name = "frmPlayfair";
-            Text = "Playfair";
+            Name = "frmHill";
+            Text = "Hill Cipher";
             ResumeLayout(false);
         }
 

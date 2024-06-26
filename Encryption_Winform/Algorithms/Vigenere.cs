@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using Encryption_Winform.Common;
+
 namespace Encryption_Winform.Algorithms;
 public static class Vigenere
 {
@@ -18,7 +20,7 @@ public static class Vigenere
     }
     public static string Encryption(string PlainText,string Key)
     {
-        var letters = Utility.GetAllUpperLetters();
+        var letters = Utility.GetAllUpperLettersAsList();
 
         var K = GenerateArrayKey(PlainText.Length, Key);
 
@@ -37,7 +39,7 @@ public static class Vigenere
 
     public static string Decryption(string CipherText, string Key)
     {
-        var letters = Utility.GetAllUpperLetters();
+        var letters = Utility.GetAllUpperLettersAsList();
 
         var K = GenerateArrayKey(CipherText.Length, Key);
 

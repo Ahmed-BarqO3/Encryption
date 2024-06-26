@@ -1,5 +1,6 @@
 using Encryption_Winform.Screens;
 namespace Encryption_Winform;
+
 public partial class Main : Form
 {
     public Main()
@@ -25,4 +26,9 @@ public partial class Main : Form
         LoadForm(new frmPlayfair());
     private void btnVigenere_Click(object sender, EventArgs e) =>
         LoadForm(new frmVigenere());
+
+    private void btnHill_Click(object sender, EventArgs e) =>
+    
+        LoadForm(new frmHill());
+    
 }

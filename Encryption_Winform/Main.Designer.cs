@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlNav = new Guna.UI2.WinForms.Guna2Panel();
+            btnVigenere = new Guna.UI2.WinForms.Guna2Button();
             btnPlayfair = new Guna.UI2.WinForms.Guna2Button();
             btnCaesar = new Guna.UI2.WinForms.Guna2Button();
             pnlTitle = new Guna.UI2.WinForms.Guna2Panel();
@@ -51,7 +54,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlFill = new Guna.UI2.WinForms.Guna2Panel();
             lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            btnVigenere = new Guna.UI2.WinForms.Guna2Button();
+            btnHill = new Guna.UI2.WinForms.Guna2Button();
             pnlNav.SuspendLayout();
             pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
@@ -60,21 +63,43 @@
             // pnlNav
             // 
             pnlNav.BackColor = Color.FromArgb(33, 40, 41);
+            pnlNav.Controls.Add(btnHill);
             pnlNav.Controls.Add(btnVigenere);
             pnlNav.Controls.Add(btnPlayfair);
             pnlNav.Controls.Add(btnCaesar);
             pnlNav.Controls.Add(pnlTitle);
-            pnlNav.CustomizableEdges = customizableEdges10;
+            pnlNav.CustomizableEdges = customizableEdges12;
             pnlNav.Dock = DockStyle.Left;
             pnlNav.Location = new Point(0, 0);
             pnlNav.Name = "pnlNav";
-            pnlNav.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            pnlNav.ShadowDecoration.CustomizableEdges = customizableEdges13;
             pnlNav.Size = new Size(291, 673);
             pnlNav.TabIndex = 0;
             // 
+            // btnVigenere
+            // 
+            btnVigenere.CustomizableEdges = customizableEdges3;
+            btnVigenere.DisabledState.BorderColor = Color.DarkGray;
+            btnVigenere.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnVigenere.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnVigenere.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnVigenere.Dock = DockStyle.Top;
+            btnVigenere.FillColor = Color.FromArgb(33, 40, 41);
+            btnVigenere.Font = new Font("Segoe UI", 9F);
+            btnVigenere.ForeColor = Color.White;
+            btnVigenere.HoverState.FillColor = Color.FromArgb(88, 0, 44);
+            btnVigenere.HoverState.ForeColor = Color.FromArgb(0, 147, 147);
+            btnVigenere.Location = new Point(0, 205);
+            btnVigenere.Name = "btnVigenere";
+            btnVigenere.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnVigenere.Size = new Size(291, 40);
+            btnVigenere.TabIndex = 3;
+            btnVigenere.Text = "Vigenere";
+            btnVigenere.Click += btnVigenere_Click;
+            // 
             // btnPlayfair
             // 
-            btnPlayfair.CustomizableEdges = customizableEdges3;
+            btnPlayfair.CustomizableEdges = customizableEdges5;
             btnPlayfair.DisabledState.BorderColor = Color.DarkGray;
             btnPlayfair.DisabledState.CustomBorderColor = Color.DarkGray;
             btnPlayfair.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -87,7 +112,7 @@
             btnPlayfair.HoverState.ForeColor = Color.FromArgb(0, 147, 147);
             btnPlayfair.Location = new Point(0, 165);
             btnPlayfair.Name = "btnPlayfair";
-            btnPlayfair.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnPlayfair.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnPlayfair.Size = new Size(291, 40);
             btnPlayfair.TabIndex = 2;
             btnPlayfair.Text = "Playfair";
@@ -95,7 +120,7 @@
             // 
             // btnCaesar
             // 
-            btnCaesar.CustomizableEdges = customizableEdges5;
+            btnCaesar.CustomizableEdges = customizableEdges7;
             btnCaesar.DisabledState.BorderColor = Color.DarkGray;
             btnCaesar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCaesar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -108,7 +133,7 @@
             btnCaesar.HoverState.ForeColor = Color.FromArgb(0, 147, 147);
             btnCaesar.Location = new Point(0, 125);
             btnCaesar.Name = "btnCaesar";
-            btnCaesar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnCaesar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCaesar.Size = new Size(291, 40);
             btnCaesar.TabIndex = 0;
             btnCaesar.Text = "Caesar";
@@ -120,11 +145,11 @@
             pnlTitle.Controls.Add(guna2ShadowPanel1);
             pnlTitle.Controls.Add(guna2CirclePictureBox1);
             pnlTitle.Controls.Add(guna2HtmlLabel1);
-            pnlTitle.CustomizableEdges = customizableEdges8;
+            pnlTitle.CustomizableEdges = customizableEdges10;
             pnlTitle.Dock = DockStyle.Top;
             pnlTitle.Location = new Point(0, 0);
             pnlTitle.Name = "pnlTitle";
-            pnlTitle.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            pnlTitle.ShadowDecoration.CustomizableEdges = customizableEdges11;
             pnlTitle.Size = new Size(291, 125);
             pnlTitle.TabIndex = 1;
             // 
@@ -145,7 +170,7 @@
             guna2CirclePictureBox1.InitialImage = (Image)resources.GetObject("guna2CirclePictureBox1.InitialImage");
             guna2CirclePictureBox1.Location = new Point(27, 23);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges9;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.Size = new Size(64, 64);
             guna2CirclePictureBox1.TabIndex = 2;
@@ -165,11 +190,11 @@
             // pnlFill
             // 
             pnlFill.BackColor = Color.FromArgb(32, 32, 32);
-            pnlFill.CustomizableEdges = customizableEdges12;
+            pnlFill.CustomizableEdges = customizableEdges14;
             pnlFill.ForeColor = Color.FromArgb(255, 245, 250);
             pnlFill.Location = new Point(330, 125);
             pnlFill.Name = "pnlFill";
-            pnlFill.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            pnlFill.ShadowDecoration.CustomizableEdges = customizableEdges15;
             pnlFill.Size = new Size(931, 530);
             pnlFill.TabIndex = 1;
             // 
@@ -184,26 +209,26 @@
             lblTitle.TabIndex = 15;
             lblTitle.Text = null;
             // 
-            // btnVigenere
+            // btnHill
             // 
-            btnVigenere.CustomizableEdges = customizableEdges1;
-            btnVigenere.DisabledState.BorderColor = Color.DarkGray;
-            btnVigenere.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnVigenere.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnVigenere.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnVigenere.Dock = DockStyle.Top;
-            btnVigenere.FillColor = Color.FromArgb(33, 40, 41);
-            btnVigenere.Font = new Font("Segoe UI", 9F);
-            btnVigenere.ForeColor = Color.White;
-            btnVigenere.HoverState.FillColor = Color.FromArgb(88, 0, 44);
-            btnVigenere.HoverState.ForeColor = Color.FromArgb(0, 147, 147);
-            btnVigenere.Location = new Point(0, 205);
-            btnVigenere.Name = "btnVigenere";
-            btnVigenere.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnVigenere.Size = new Size(291, 40);
-            btnVigenere.TabIndex = 3;
-            btnVigenere.Text = "Vigenere";
-            btnVigenere.Click += btnVigenere_Click;
+            btnHill.CustomizableEdges = customizableEdges1;
+            btnHill.DisabledState.BorderColor = Color.DarkGray;
+            btnHill.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnHill.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnHill.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnHill.Dock = DockStyle.Top;
+            btnHill.FillColor = Color.FromArgb(33, 40, 41);
+            btnHill.Font = new Font("Segoe UI", 9F);
+            btnHill.ForeColor = Color.White;
+            btnHill.HoverState.FillColor = Color.FromArgb(88, 0, 44);
+            btnHill.HoverState.ForeColor = Color.FromArgb(0, 147, 147);
+            btnHill.Location = new Point(0, 245);
+            btnHill.Name = "btnHill";
+            btnHill.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnHill.Size = new Size(291, 40);
+            btnHill.TabIndex = 4;
+            btnHill.Text = "Hill Cipher";
+            btnHill.Click += btnHill_Click;
             // 
             // Main
             // 
@@ -239,5 +264,6 @@
         private Guna.UI2.WinForms.Guna2Button btnPlayfair;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
         private Guna.UI2.WinForms.Guna2Button btnVigenere;
+        private Guna.UI2.WinForms.Guna2Button btnHill;
     }
 }
