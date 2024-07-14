@@ -1,6 +1,6 @@
 # Encryption Algorithm
 
-This project is an encryption algorithm implemented using C#. It is currently a work in progress and not yet complete. 
+This project is an encryption algorithm implemented using C# .Net 8 Winform
 
 ## Requirements
 
