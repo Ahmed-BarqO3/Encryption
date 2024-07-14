@@ -1,6 +1,5 @@
 # Encryption Algorithm
 
-This project is an encryption algorithm implemented using C# .Net 8 Winform
 
 ## Requirements
 
