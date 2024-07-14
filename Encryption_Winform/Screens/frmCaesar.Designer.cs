@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -50,9 +49,8 @@
             txtResult = new Guna.UI2.WinForms.Guna2TextBox();
             btnRests = new Guna.UI2.WinForms.Guna2Button();
             btnTask = new Guna.UI2.WinForms.Guna2Button();
-            errorProvider1 = new ErrorProvider(components);
+            ctrlBase1 = new Control.ctrlBase();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // txtSource
@@ -78,8 +76,6 @@
             txtSource.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtSource.Size = new Size(415, 32);
             txtSource.TabIndex = 1;
-            txtSource.KeyPress += txtSource_KeyPress;
-            txtSource.Validating += txtBox_Validating;
             // 
             // lblSource
             // 
@@ -126,8 +122,6 @@
             txtKey.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtKey.Size = new Size(151, 32);
             txtKey.TabIndex = 3;
-            txtKey.KeyPress += txtKey_KeyPress;
-            txtKey.Validating += txtBox_Validating;
             // 
             // groupBox2
             // 
@@ -160,7 +154,6 @@
             rdDecryption.UncheckedState.BorderThickness = 2;
             rdDecryption.UncheckedState.FillColor = Color.Transparent;
             rdDecryption.UncheckedState.InnerColor = Color.Transparent;
-            rdDecryption.CheckedChanged += rdDecryption_CheckedChanged;
             // 
             // rdEncryption
             // 
@@ -181,7 +174,6 @@
             rdEncryption.UncheckedState.BorderThickness = 2;
             rdEncryption.UncheckedState.FillColor = Color.Transparent;
             rdEncryption.UncheckedState.InnerColor = Color.Transparent;
-            rdEncryption.CheckedChanged += rdEncryption_CheckedChanged;
             // 
             // lblResult
             // 
@@ -239,7 +231,6 @@
             btnRests.Size = new Size(168, 35);
             btnRests.TabIndex = 16;
             btnRests.Text = "Rest";
-            btnRests.Click += btnRests_Click;
             // 
             // btnTask
             // 
@@ -260,17 +251,23 @@
             btnTask.Size = new Size(168, 35);
             btnTask.TabIndex = 15;
             btnTask.Text = "Encryption";
-            btnTask.Click += btnTask_Click;
             // 
-            // errorProvider1
+            // ctrlBase1
             // 
-            errorProvider1.ContainerControl = this;
+            ctrlBase1.BackColor = Color.FromArgb(32, 32, 32);
+            ctrlBase1.Dock = DockStyle.Fill;
+            ctrlBase1.Location = new Point(0, 0);
+            ctrlBase1.Name = "ctrlBase1";
+            ctrlBase1.Size = new Size(901, 530);
+            ctrlBase1.TabIndex = 17;
+            ctrlBase1.Load += ctrlBase1_Load;
             // 
             // frmCaesar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(901, 530);
+            Controls.Add(ctrlBase1);
             Controls.Add(btnRests);
             Controls.Add(btnTask);
             Controls.Add(lblResult);
@@ -284,7 +281,6 @@
             Text = "Caesar";
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -301,6 +297,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtResult;
         private Guna.UI2.WinForms.Guna2Button btnRests;
         private Guna.UI2.WinForms.Guna2Button btnTask;
-        private ErrorProvider errorProvider1;
+        private Control.ctrlBase ctrlBase1;
     }
 }

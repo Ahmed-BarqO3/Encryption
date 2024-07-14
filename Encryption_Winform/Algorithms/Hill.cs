@@ -2,23 +2,15 @@
 
 namespace Encryption_Winform.Algorithms;
 
-using System.Text;
-using static Math;
-
-public static class Hill
+public  class Hill : ISecurity
 {
-    public static string Encrypt(string plaintext, string key)
+    public  string Encrypt(string plaintext, string key)
     {
 
-        // Calculate the dimension of the key matrix
         int matrixSize = (int)Math.Sqrt(key.Length);
 
-        if (matrixSize * matrixSize != key.Length)
-        {
-            throw new ArgumentException("Key length must be a perfect square.");
-        }
+     
 
-        // Convert key into a matrix
         int[,] keyMatrix = new int[matrixSize, matrixSize];
         for (int i = 0; i < matrixSize; i++)
         {
@@ -28,13 +20,11 @@ public static class Hill
             }
         }
 
-        // Pad plaintext if its length is not a multiple of the matrix size
         while (plaintext.Length % matrixSize != 0)
         {
             plaintext += "X";
         }
 
-        // Encrypt plaintext in blocks of the matrix size
         string ciphertext = "";
         for (int i = 0; i < plaintext.Length; i += matrixSize)
         {
@@ -65,12 +55,11 @@ public static class Hill
         return ciphertext;
     }
 
-    public static string Dencryption(string ciphertext, string key)
+    public string Decrypt(string ciphertext, string key)
     {
         int matrixSize = (int)Math.Sqrt(key.Length);
 
 
-        // Convert key into a matrix
         int[,] keyMatrix = new int[matrixSize, matrixSize];
         for (int i = 0; i < matrixSize; i++)
         {
@@ -80,10 +69,8 @@ public static class Hill
             }
         }
 
-        // Find the inverse of the key matrix
         int[,] inverseKeyMatrix = Utility.InverseMatrix(keyMatrix, 26);
 
-        // Decrypt ciphertext in blocks of the matrix size
         string plaintext = "";
         for (int i = 0; i < ciphertext.Length; i += matrixSize)
         {
@@ -102,7 +89,7 @@ public static class Hill
                     decryptedBlock[j] += inverseKeyMatrix[j, k] * block[k];
                 }
 
-                decryptedBlock[j] = (decryptedBlock[j] % 26 + 26) % 26; // Ensure positive modulo
+                decryptedBlock[j] = (decryptedBlock[j] % 26 + 26) % 26;
             }
 
             for (int j = 0; j < matrixSize; j++)

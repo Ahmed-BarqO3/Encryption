@@ -1,54 +1,11 @@
 using System.Text;
+using Encryption_Winform.Common;
 namespace Encryption_Winform.Algorithms;
-public static class Playfair
+public  class Playfair : ISecurity
 {
-    static char[,] GenerateKeyMatrix(string Key)
-    {
-        var matrix = new char[5, 5];
-        StringBuilder sb = new StringBuilder();
+    
 
-        foreach (var c in Key.ToUpper())
-            if (!sb.ToString().Contains(c) && c != 'J')
-                sb.Append(c);
-
-
-        string sympoles = sb.ToString() + "ABCDEFGHIKLMNOPQRSTUVWXYZ";
-        sb.Clear();
-
-
-        foreach (var c in sympoles)
-            if (!sb.ToString().Contains(c))
-                sb.Append(c);
-
-
-        int index = 0;
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-                matrix[i, j] = sb[index++];
-        }
-
-        return matrix;
-    }
-
-    static void GetPosition(ref char c, out int row, out int col, char[,] keyMatrix)
-    {
-        row = 0; col = 0;
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                if (keyMatrix[i, j] == c)
-                {
-                    row = i;
-                    col = j;
-                    return;
-                }
-            }
-        }
-    }
-
-    public static string Encryption(string plaintext, string Key)
+    public  string Encrypt(string plaintext, string Key)
     {
 
         var keyMatrix = GenerateKeyMatrix(Key);
@@ -103,7 +60,7 @@ public static class Playfair
         return ciphertext.ToString();
     }
 
-    public static string Decryption(string ciphertext, string key)
+    public  string Decrypt(string ciphertext, string key)
     {
         var matrix = GenerateKeyMatrix(key);
 
@@ -152,5 +109,52 @@ public static class Playfair
         }
 
         return plaintext.ToString().ToUpper();
+    }
+
+
+    static char[,] GenerateKeyMatrix(string Key)
+    {
+        var matrix = new char[5, 5];
+        StringBuilder sb = new StringBuilder();
+
+        foreach (var c in Key.ToUpper())
+            if (!sb.ToString().Contains(c) && c != 'J')
+                sb.Append(c);
+
+
+        string sympoles = sb.ToString() + "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+        sb.Clear();
+
+
+        foreach (var c in sympoles)
+            if (!sb.ToString().Contains(c))
+                sb.Append(c);
+
+
+        int index = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+                matrix[i, j] = sb[index++];
+        }
+
+        return matrix;
+    }
+
+    static void GetPosition(ref char c, out int row, out int col, char[,] keyMatrix)
+    {
+        row = 0; col = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (keyMatrix[i, j] == c)
+                {
+                    row = i;
+                    col = j;
+                    return;
+                }
+            }
+        }
     }
 }

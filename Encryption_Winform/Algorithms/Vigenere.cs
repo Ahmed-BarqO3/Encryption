@@ -2,7 +2,7 @@
 using Encryption_Winform.Common;
 
 namespace Encryption_Winform.Algorithms;
-public static class Vigenere
+public class Vigenere : ISecurity
 {
     static char[] GenerateArrayKey(int Length, string Key)
     {
@@ -18,7 +18,8 @@ public static class Vigenere
             }
         return K;
     }
-    public static string Encryption(string PlainText,string Key)
+
+    public string Encrypt(string PlainText,string Key)
     {
         var letters = Utility.GetAllUpperLettersAsList();
 
@@ -37,7 +38,7 @@ public static class Vigenere
         return sb.ToString();
     }
 
-    public static string Decryption(string CipherText, string Key)
+    public  string Decrypt(string CipherText, string Key)
     {
         var letters = Utility.GetAllUpperLettersAsList();
 
