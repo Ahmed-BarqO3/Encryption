@@ -28,7 +28,13 @@ public partial class Main : Form
         LoadForm(new frmVigenere());
 
     private void btnHill_Click(object sender, EventArgs e) =>
-    
+
         LoadForm(new frmHill());
+
+    private void btnRSA_Click(object sender, EventArgs e) =>
+
+        LoadForm(new frmRSA());
+    
+
     
 }

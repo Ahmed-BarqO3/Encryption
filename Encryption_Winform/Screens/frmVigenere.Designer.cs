@@ -39,7 +39,7 @@ namespace Encryption_Winform.Screens
             ctrlBase1.Dock = DockStyle.Fill;
             ctrlBase1.Location = new Point(0, 0);
             ctrlBase1.Name = "ctrlBase1";
-            ctrlBase1.Size = new Size(800, 450);
+            ctrlBase1.Size = new Size(901, 530);
             ctrlBase1.TabIndex = 0;
             ctrlBase1.Load += ctrlBase1_Load;
             // 
@@ -47,7 +47,7 @@ namespace Encryption_Winform.Screens
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(901, 530);
             Controls.Add(ctrlBase1);
             Name = "frmVigenere";
             Text = "Vigenere";
